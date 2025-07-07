@@ -1,0 +1,133 @@
+
+````markdown
+# 🦅 Shikra-MLLM-Referential-Dialogue-Magic
+
+Shikra is a **Multimodal Large Language Model (MLLM)** designed for **referential dialogue** — allowing language to interact with **specific image regions** using coordinates. This enhanced version supports a wide variety of tasks including REC, REG, PointQA, VQA, captioning, and more.
+
+---
+
+## 🚀 Features
+
+- 📌 Understand and respond to **natural language queries with bounding boxes**
+- 🎯 Supports tasks like **REC, REG, PointQA, VQA, Captioning**
+- 🧠 Integrated with **CLIP vision backbone** and **Vicuna/LLaMA-7B**
+- 🔄 Supports **referential dialogue with image region localization**
+- 🗂️ Modular training configs for easy multi-task learning
+
+---S
+
+## 🛠️ Installation
+
+```bash
+conda create -n shikra python=3.10
+conda activate shikra
+pip install -r requirements.txt
+````
+
+Then configure `accelerate`:
+
+```bash
+accelerate config
+```
+
+---
+
+## 🧠 Model Setup
+
+To load the `shikra-7b` model:
+
+### 🔁 Merge Shikra Delta with LLaMA-7B
+
+You need to apply the delta from `shikras/shikra-7b-delta-v1` to the base `llama-7b` weights using Hugging Face's `transformers-cli`:
+
+```bash
+transformers-cli convert --model llama-7b --delta shikras/shikra-7b-delta-v1 --output shikra-7b
+```
+
+This will produce a fully functional **Shikra-7B** model.
+
+---
+
+## 🏃‍♂️ Running / Training
+
+### ⚙️ Two Main Files:
+
+1. `run.py` – Entry point for training or evaluation
+2. `shikra_REC_ref3.yaml` – Main config file defining model, dataset, and task
+
+### ✅ Run Training
+
+```bash
+accelerate launch run.py --cfg shikra_REC_ref3.yaml
+```
+
+> You can modify the YAML config to switch datasets, adjust hyperparameters, or toggle task types.
+
+---
+
+## 📁 Dataset Setup
+
+All datasets are stored in the `shikra_data/` directory. You can filter missing image paths using:
+
+```bash
+python filter_jsonl.py
+```
+
+The model supports JSONL-based datasets such as:
+
+* RefCOCO (REC, REG)
+* Flickr30K (Captioning, Spotting)
+* VQA (PointQA, VQAv2)
+* GPT4-Generated RD and BoxCoT prompts
+
+---
+
+## 📂 Project Structure
+
+```
+Shikra-MLLM-Referential-Dialogue-Magic/
+├── run.py                      # Training/evaluation entry point
+├── shikra_REC_ref3.yaml        # Main task config
+├── requirements.txt
+├── shikras/                    # Contains shikra-7b-delta-v1
+├── shikra_data/                # Contains all datasets (JSONL format)
+├── filter_jsonl.py             # Optional dataset cleaner
+├── mllm/                       # Model components and training engine
+│   ├── engine/
+│   ├── models/
+│   ├── pipeline/
+│   ├── processor/
+│   └── ...
+```
+
+---
+
+## 📊 Tasks Supported
+
+| Task                 | Datasets                |
+| -------------------- | ----------------------- |
+| **REC**              | RefCOCO, RefCOCOg       |
+| **REG**              | RefCOCOg                |
+| **VQA**              | VQAv2, OK-VQA           |
+| **PointQA**          | Visual7W, Visual Genome |
+| **Captioning**       | Flickr30K, COCO         |
+| **Spotting Caption** | Flickr30K Entities      |
+
+---
+
+## 🐛 Common Errors & Fixes
+
+### ❌ `ValueError: The train_dataset does not implement __len__`
+
+**Fix**: Add `max_steps` manually in your training config or ensure datasets are fully preprocessed and support `__len__()`.
+
+```yaml
+training_args:
+  max_steps: 10000  # Set a reasonable number
+```
+
+---
+
+
+
+

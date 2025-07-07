@@ -1,0 +1,626 @@
+/home/user2/.local/lib/python3.10/site-packages/transformers/training_args.py:1356: FutureWarning: using `--fsdp_transformer_layer_cls_to_wrap` is deprecated. Use fsdp_config instead 
+  warnings.warn(
+06/17/2025 17:55:57 - INFO - mllm.config.config - data_args = dict(
+    collator_kwargs=dict(max_length=1024, padding=True),
+    compute_metric=None,
+    gen_kwargs=dict(max_new_tokens=1024, num_beams=1),
+    test=None,
+    train=dict({
+        'cfgs': [
+            dict(
+                cfgs=[
+                    dict(
+                        add_coco_prefix=True,
+                        filename=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/llava_instruct_150k.jsonl',
+                        image_folder=
+                        'zz1424:s3://PublicDatalist/public_datalist_6_unzip/train2014',
+                        type='InstructDataset'),
+                    dict(
+                        filename=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/GPT4GEN_BoxCoT_train.jsonl',
+                        image_folder=
+                        'zz1424:s3://production-public-flickr_image/Flickr_Image/unzip/flickr30k_images/flickr30k_images',
+                        template_file=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_BCoT.json',
+                        type='GPT4Gen',
+                        version='bc'),
+                    dict(
+                        filename=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/GPT4GEN_RD_BoxCoT_train.jsonl',
+                        image_folder=
+                        'zz1424:s3://production-public-flickr_image/Flickr_Image/unzip/flickr30k_images/flickr30k_images',
+                        template_file=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_BCoT.json',
+                        type='GPT4Gen',
+                        version='bc'),
+                ],
+                type='ConcatDatasetWithShuffle'),
+            dict(
+                cfgs=[
+                    dict(
+                        filename=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/CWB_flickr30k_train.jsonl',
+                        image_folder=
+                        'zz1424:s3://production-public-flickr_image/Flickr_Image/unzip/flickr30k_images/flickr30k_images',
+                        template_file=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/flickr30k.json',
+                        type='FlickrDataset'),
+                    dict(
+                        filename=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/REC_ref3_train.jsonl',
+                        image_folder=
+                        'zz1424:s3://visual_grounding/academic_data/refer/images/mscoco/images/train2014/',
+                        template_file=
+                        '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/REC.json',
+                        type='RECDataset'),
+                    dict(
+                        cfgs=[
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/v2_OpenEnded_mscoco_train2014_questions.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_49/VQAv2/unzip/',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='VQAv2Dataset'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/vqa_E_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://visual_grounding/academic_data/refer/images/mscoco/images/',
+                                is_e_dataset=True,
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_CoT.json',
+                                type='VQAEXDataset'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/vqa_X_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://visual_grounding/academic_data/refer/images/mscoco/images/',
+                                is_e_dataset=False,
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_CoT.json',
+                                type='VQAEXDataset'),
+                        ],
+                        seed=43,
+                        type='ConcatDatasetWithShuffle'),
+                    dict(
+                        cfgs=[
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/vcr_train.jsonl',
+                                image_folder=
+                                'sh41:s3://MultiModal/Monolith/academic/vcr/vcr1images',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_BCoT.json',
+                                type='VCRDataset',
+                                version='q-ra'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/vcr_train.jsonl',
+                                image_folder=
+                                'sh41:s3://MultiModal/Monolith/academic/vcr/vcr1images',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA_BCoT.json',
+                                type='VCRDataset',
+                                version='qc-rac'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/vcr_train.jsonl',
+                                image_folder=
+                                'sh41:s3://MultiModal/Monolith/academic/vcr/vcr1images',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='VCRDataset',
+                                version='qac-r'),
+                        ],
+                        seed=44,
+                        type='ConcatDatasetWithShuffle'),
+                    dict(
+                        cfgs=[
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/pointQA_local_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='Point_QA_local',
+                                version='b'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/pointQA_local_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='Point_QA_local',
+                                version='p'),
+                        ],
+                        portion=3,
+                        seed=45,
+                        type='ConcatDatasetWithShuffle'),
+                    dict(
+                        cfgs=[
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/pointQA_twice_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='Point_QA_twice',
+                                version='oq-bp'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/pointQA_twice_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='Point_QA_twice',
+                                version='sq-bp'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/pointQA_twice_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='Point_QA_twice',
+                                version='gq-bp'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/v7w_pointing_train.jsonl',
+                                image_folder=
+                                'sh41:s3://MultiModal/Monolith/academic/v7w/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='V7W_POINT',
+                                version='p'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/v7w_pointing_train.jsonl',
+                                image_folder=
+                                'sh41:s3://MultiModal/Monolith/academic/v7w/data',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/VQA.json',
+                                type='V7W_POINT',
+                                version='b'),
+                        ],
+                        seed=46,
+                        type='ConcatDatasetWithShuffle'),
+                    dict(
+                        cfgs=[
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/REC_ref3_train.jsonl',
+                                image_folder=
+                                'zz1424:s3://visual_grounding/academic_data/refer/images/mscoco/images/train2014/',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/REG.json',
+                                type='REGDataset'),
+                            dict(
+                                filename=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/CAP_coco2014_train.jsonl',
+                                image_folder=
+                                'openmmlab1424:s3://openmmlab/datasets/detection/coco/train2014/',
+                                template_file=
+                                '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/image_cap.json',
+                                type='CaptionDataset'),
+                            dict(
+                                cfg=dict(
+                                    filename=
+                                    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/llava_cc3m.jsonl',
+                                    image_folder=
+                                    'sh41:s3://MultiModal/Monolith/academic/llava-pretrain/data/558K_imgs',
+                                    type='InstructDataset'),
+                                do_shuffle=True,
+                                portion=0.6666666666666666,
+                                seed=40,
+                                type='SubSet'),
+                            dict(
+                                cfg=dict(
+                                    filename=
+                                    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/blip_laion_cc_sbu_558k.jsonl',
+                                    image_folder=
+                                    'sh41:s3://MultiModal/Monolith/academic/llava-pretrain/data/595K_imgs',
+                                    type='InstructDataset'),
+                                do_shuffle=True,
+                                portion=0.6666666666666666,
+                                seed=41,
+                                type='SubSet'),
+                            dict(
+                                cfg=dict(
+                                    filename=
+                                    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/../../../data/GC_genome196_train.jsonl',
+                                    image_folder=
+                                    'zz1424:s3://publicdataset_8/Visual_Genome_Dataset_V1.2/unzip/data',
+                                    template_file=
+                                    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/config/_base_/dataset/template/GC.json',
+                                    type='GCDataset'),
+                                do_shuffle=True,
+                                portion=0.06666666666666667,
+                                seed=42,
+                                type='SubSet'),
+                        ],
+                        seed=47,
+                        type='ConcatDatasetWithShuffle'),
+                ],
+                probabilities=[
+                    0.14285714285714285,
+                    0.14285714285714285,
+                    0.14285714285714285,
+                    0.14285714285714285,
+                    0.14285714285714285,
+                    0.14285714285714285,
+                    0.14285714285714285,
+                ],
+                seed=None,
+                stopping_strategy='first_exhausted',
+                type='InterleaveDateset'),
+        ],
+        'datasets[0]':
+        dict(
+            filename=
+            '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra_data/blip_laion_cc_sbu_558k.jsonl'
+        ),
+        'datasets[1]':
+        dict(
+            filename=
+            '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra_data/pointQA_local_train.jsonl'
+        ),
+        'probabilities': [
+            0.1,
+            0.9,
+        ],
+        'seed':
+        None,
+        'stopping_strategy':
+        'first_exhausted',
+        'type':
+        'InterleaveDateset'
+    }),
+    validation=None)
+model_args = dict(
+    cache_dir=None,
+    conv_args=dict(
+        conv_template='vicuna_v1.1',
+        tokenize_kwargs=dict(truncation_size=4096),
+        transforms=dict(type='Expand2square')),
+    freeze_backbone=False,
+    freeze_mm_mlp_adapter=False,
+    gen_kwargs_set_bos_token_id=True,
+    gen_kwargs_set_eos_token_id=True,
+    gen_kwargs_set_pad_token_id=True,
+    image_token_len=256,
+    mm_use_im_start_end=True,
+    mm_vision_select_layer=-2,
+    model_max_length=2048,
+    model_name_or_path=
+    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-7b',
+    pretrain_mm_mlp_adapter=None,
+    process_func_args=dict(
+        conv=dict(type='ShikraConvProcess'),
+        image=dict(type='ShikraImageProcessor'),
+        target=dict(type='BoxFormatProcess'),
+        text=dict(type='ShikraTextProcess')),
+    sep_image_conv_front=False,
+    target_processor=dict(boxes=dict(type='PlainBoxFormatter')),
+    tune_mm_mlp_adapter=False,
+    type='shikra',
+    version='v1',
+    vision_tower='openai/clip-vit-large-patch14')
+training_args = dict(
+    bf16=True,
+    dataloader_num_workers=4,
+    do_eval=False,
+    do_predict=False,
+    do_train=True,
+    evaluation_strategy='no',
+    fsdp='full_shard auto_wrap',
+    fsdp_transformer_layer_cls_to_wrap='LlamaDecoderLayer',
+    gradient_accumulation_steps=1,
+    gradient_checkpointing=True,
+    learning_rate=2e-05,
+    logging_steps=10,
+    lr_scheduler_type='cosine',
+    num_train_epochs=1.0,
+    output_dir=
+    '/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/output_run1',
+    overwrite_output_dir=True,
+    per_device_eval_batch_size=8,
+    per_device_train_batch_size=8,
+    predict_with_generate=True,
+    remove_unused_columns=False,
+    report_to='none',
+    save_steps=2000,
+    save_strategy='steps',
+    save_total_limit=1,
+    seed=42,
+    tf32=True,
+    warmup_ratio=0.03,
+    weight_decay=0.0)
+
+06/17/2025 17:55:57 - INFO - mllm.config.config - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=4,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=False,
+do_multi_predict=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[<FSDPOption.FULL_SHARD: 'full_shard'>, <FSDPOption.AUTO_WRAP: 'auto_wrap'>],
+fsdp_config={'fsdp_min_num_params': 0, 'fsdp_transformer_layer_cls_to_wrap': ['LlamaDecoderLayer'], 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=LlamaDecoderLayer,
+full_determinism=False,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=True,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/output_run1/runs/Jun17_17-55-39_bigdata-DGX-Station-A100-920-23487-2531-0R0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_hf,
+optim_args=None,
+output_dir=/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/output_run1,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=True,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/output_run1,
+save_on_each_node=False,
+save_steps=2000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=True,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.03,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+06/17/2025 17:55:57 - WARNING - mllm.config.config - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, fp16 training: False
+[INFO|configuration_utils.py:666] 2025-06-17 17:55:57,790 >> loading configuration file /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-7b/config.json
+[INFO|configuration_utils.py:720] 2025-06-17 17:55:57,791 >> Model config ShikraConfig {
+  "_name_or_path": "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/shikra-7b-delta-v1-0708",
+  "architectures": [
+    "ShikraLlamaForCausalLM"
+  ],
+  "bos_token_id": 0,
+  "eos_token_id": 1,
+  "freeze_mm_mlp_adapter": false,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 2048,
+  "max_sequence_length": 2048,
+  "mm_hidden_size": 1024,
+  "mm_use_im_start_end": true,
+  "mm_vision_select_layer": -2,
+  "mm_vision_tower": "openai/clip-vit-large-patch14",
+  "model_type": "shikra",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "pad_token_id": -1,
+  "rms_norm_eps": 1e-06,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.28.0.dev0",
+  "tune_mm_mlp_adapter": false,
+  "use_cache": false,
+  "use_mm_proj": true,
+  "vocab_size": 32003
+}
+
+[INFO|modeling_utils.py:2395] 2025-06-17 17:55:57,791 >> loading weights file /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-7b/pytorch_model.bin.index.json
+[INFO|configuration_utils.py:575] 2025-06-17 17:55:57,791 >> Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 0,
+  "eos_token_id": 1,
+  "pad_token_id": -1,
+  "transformers_version": "4.28.0.dev0",
+  "use_cache": false
+}
+
+/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[INFO|configuration_utils.py:668] 2025-06-17 17:56:39,235 >> loading configuration file config.json from cache at /home/user2/.cache/huggingface/hub/models--openai--clip-vit-large-patch14/snapshots/32bd64288804d66eefd0ccbe215aa642df71cc41/config.json
+[INFO|configuration_utils.py:720] 2025-06-17 17:56:39,235 >> Model config CLIPVisionConfig {
+  "attention_dropout": 0.0,
+  "dropout": 0.0,
+  "hidden_act": "quick_gelu",
+  "hidden_size": 1024,
+  "image_size": 224,
+  "initializer_factor": 1.0,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "model_type": "clip_vision_model",
+  "num_attention_heads": 16,
+  "num_channels": 3,
+  "num_hidden_layers": 24,
+  "patch_size": 14,
+  "projection_dim": 768,
+  "transformers_version": "4.28.0.dev0"
+}
+
+[INFO|modeling_utils.py:2398] 2025-06-17 17:56:39,501 >> loading weights file model.safetensors from cache at /home/user2/.cache/huggingface/hub/models--openai--clip-vit-large-patch14/snapshots/32bd64288804d66eefd0ccbe215aa642df71cc41/model.safetensors
+[WARNING|modeling_utils.py:3019] 2025-06-17 17:56:41,689 >> Some weights of the model checkpoint at openai/clip-vit-large-patch14 were not used when initializing CLIPVisionModel: ['text_model.encoder.layers.11.self_attn.q_proj.weight', 'logit_scale', 'text_model.encoder.layers.1.mlp.fc1.bias', 'text_model.encoder.layers.2.layer_norm1.bias', 'text_model.encoder.layers.5.self_attn.out_proj.weight', 'text_model.encoder.layers.10.layer_norm2.weight', 'text_model.encoder.layers.7.mlp.fc2.bias', 'text_model.encoder.layers.11.self_attn.v_proj.weight', 'text_model.encoder.layers.8.layer_norm1.bias', 'text_model.encoder.layers.0.layer_norm2.weight', 'text_model.encoder.layers.6.layer_norm1.bias', 'text_model.encoder.layers.0.mlp.fc1.bias', 'text_model.encoder.layers.2.self_attn.v_proj.weight', 'text_model.encoder.layers.8.mlp.fc1.bias', 'text_model.encoder.layers.4.self_attn.k_proj.weight', 'text_model.encoder.layers.2.self_attn.k_proj.bias', 'text_model.encoder.layers.10.self_attn.q_proj.weight', 'text_model.encoder.layers.6.mlp.fc2.bias', 'text_model.encoder.layers.7.layer_norm1.weight', 'text_model.encoder.layers.9.self_attn.out_proj.weight', 'text_model.encoder.layers.7.self_attn.k_proj.bias', 'text_model.encoder.layers.10.self_attn.k_proj.bias', 'text_model.encoder.layers.2.layer_norm2.bias', 'text_model.encoder.layers.6.self_attn.k_proj.weight', 'text_model.encoder.layers.10.self_attn.v_proj.bias', 'text_model.encoder.layers.10.layer_norm2.bias', 'text_model.encoder.layers.2.self_attn.q_proj.bias', 'text_model.encoder.layers.5.mlp.fc2.bias', 'text_model.embeddings.position_embedding.weight', 'text_model.encoder.layers.7.self_attn.out_proj.bias', 'text_model.encoder.layers.11.self_attn.q_proj.bias', 'text_model.encoder.layers.9.self_attn.q_proj.weight', 'text_model.encoder.layers.9.self_attn.k_proj.bias', 'text_model.encoder.layers.3.self_attn.out_proj.bias', 'text_model.encoder.layers.0.mlp.fc2.weight', 'text_model.encoder.layers.11.layer_norm2.bias', 'text_model.encoder.layers.9.mlp.fc2.bias', 'text_model.encoder.layers.0.self_attn.k_proj.bias', 'text_model.encoder.layers.0.self_attn.out_proj.weight', 'text_model.encoder.layers.10.layer_norm1.bias', 'text_model.encoder.layers.4.mlp.fc2.bias', 'text_model.encoder.layers.11.mlp.fc1.weight', 'text_model.encoder.layers.7.layer_norm1.bias', 'text_model.encoder.layers.2.mlp.fc2.weight', 'visual_projection.weight', 'text_model.encoder.layers.4.self_attn.q_proj.weight', 'text_model.encoder.layers.4.self_attn.k_proj.bias', 'text_model.encoder.layers.11.layer_norm1.bias', 'text_model.encoder.layers.2.self_attn.out_proj.bias', 'text_model.encoder.layers.7.mlp.fc1.bias', 'text_model.encoder.layers.9.self_attn.v_proj.bias', 'text_model.encoder.layers.6.layer_norm2.weight', 'text_model.encoder.layers.3.self_attn.k_proj.weight', 'text_model.encoder.layers.8.self_attn.v_proj.bias', 'text_model.encoder.layers.2.self_attn.k_proj.weight', 'text_model.encoder.layers.7.self_attn.v_proj.weight', 'text_model.encoder.layers.9.layer_norm2.bias', 'text_model.encoder.layers.4.self_attn.v_proj.bias', 'text_model.encoder.layers.9.layer_norm1.bias', 'text_model.encoder.layers.6.mlp.fc2.weight', 'text_model.encoder.layers.11.self_attn.out_proj.bias', 'text_model.encoder.layers.3.layer_norm1.weight', 'text_model.encoder.layers.5.self_attn.q_proj.weight', 'text_model.encoder.layers.1.layer_norm2.bias', 'text_model.encoder.layers.10.mlp.fc2.bias', 'text_model.encoder.layers.3.layer_norm2.weight', 'text_model.encoder.layers.9.mlp.fc1.bias', 'text_model.encoder.layers.6.self_attn.v_proj.weight', 'text_model.encoder.layers.5.layer_norm2.weight', 'text_model.encoder.layers.5.mlp.fc1.bias', 'text_model.encoder.layers.0.mlp.fc2.bias', 'text_model.encoder.layers.0.layer_norm1.weight', 'text_model.encoder.layers.1.layer_norm1.weight', 'text_model.encoder.layers.4.mlp.fc1.bias', 'text_model.encoder.layers.0.self_attn.v_proj.bias', 'text_model.encoder.layers.2.self_attn.q_proj.weight', 'text_model.encoder.layers.5.self_attn.k_proj.bias', 'text_model.encoder.layers.3.self_attn.v_proj.weight', 'text_model.encoder.layers.11.self_attn.k_proj.bias', 'text_model.encoder.layers.5.self_attn.k_proj.weight', 'text_model.encoder.layers.1.mlp.fc2.weight', 'text_projection.weight', 'text_model.encoder.layers.9.layer_norm2.weight', 'text_model.encoder.layers.5.layer_norm1.weight', 'text_model.encoder.layers.4.layer_norm2.weight', 'text_model.encoder.layers.1.layer_norm2.weight', 'text_model.encoder.layers.5.layer_norm2.bias', 'text_model.encoder.layers.2.self_attn.out_proj.weight', 'text_model.encoder.layers.10.layer_norm1.weight', 'text_model.encoder.layers.7.layer_norm2.weight', 'text_model.encoder.layers.2.layer_norm1.weight', 'text_model.encoder.layers.0.self_attn.q_proj.weight', 'text_model.encoder.layers.6.mlp.fc1.weight', 'text_model.encoder.layers.2.mlp.fc1.weight', 'text_model.encoder.layers.5.self_attn.q_proj.bias', 'text_model.encoder.layers.4.self_attn.q_proj.bias', 'text_model.encoder.layers.3.self_attn.q_proj.bias', 'text_model.encoder.layers.8.self_attn.k_proj.bias', 'text_model.encoder.layers.1.self_attn.q_proj.weight', 'text_model.encoder.layers.3.mlp.fc2.bias', 'text_model.encoder.layers.1.self_attn.k_proj.bias', 'text_model.encoder.layers.7.self_attn.v_proj.bias', 'text_model.encoder.layers.8.layer_norm1.weight', 'text_model.encoder.layers.8.layer_norm2.weight', 'text_model.encoder.layers.3.mlp.fc2.weight', 'text_model.encoder.layers.0.self_attn.k_proj.weight', 'text_model.encoder.layers.3.layer_norm2.bias', 'text_model.encoder.layers.11.self_attn.k_proj.weight', 'text_model.encoder.layers.7.self_attn.q_proj.weight', 'text_model.encoder.layers.10.self_attn.q_proj.bias', 'text_model.encoder.layers.9.mlp.fc1.weight', 'text_model.encoder.layers.6.self_attn.k_proj.bias', 'text_model.encoder.layers.10.self_attn.k_proj.weight', 'text_model.encoder.layers.11.layer_norm2.weight', 'text_model.encoder.layers.6.self_attn.out_proj.weight', 'text_model.encoder.layers.0.layer_norm2.bias', 'text_model.embeddings.token_embedding.weight', 'text_model.encoder.layers.0.self_attn.v_proj.weight', 'text_model.encoder.layers.4.self_attn.out_proj.bias', 'text_model.encoder.layers.6.mlp.fc1.bias', 'text_model.encoder.layers.1.layer_norm1.bias', 'text_model.encoder.layers.9.self_attn.k_proj.weight', 'text_model.encoder.layers.2.mlp.fc2.bias', 'text_model.encoder.layers.4.mlp.fc1.weight', 'text_model.encoder.layers.2.layer_norm2.weight', 'text_model.encoder.layers.10.mlp.fc1.weight', 'text_model.encoder.layers.3.mlp.fc1.weight', 'text_model.final_layer_norm.bias', 'text_model.encoder.layers.1.mlp.fc1.weight', 'text_model.encoder.layers.6.self_attn.out_proj.bias', 'text_model.encoder.layers.3.self_attn.v_proj.bias', 'text_model.encoder.layers.0.mlp.fc1.weight', 'text_model.encoder.layers.0.layer_norm1.bias', 'text_model.encoder.layers.1.self_attn.v_proj.bias', 'text_model.encoder.layers.4.mlp.fc2.weight', 'text_model.encoder.layers.3.mlp.fc1.bias', 'text_model.encoder.layers.3.self_attn.q_proj.weight', 'text_model.encoder.layers.4.layer_norm1.weight', 'text_model.encoder.layers.3.layer_norm1.bias', 'text_model.final_layer_norm.weight', 'text_model.encoder.layers.7.self_attn.q_proj.bias', 'text_model.encoder.layers.9.layer_norm1.weight', 'text_model.encoder.layers.7.self_attn.out_proj.weight', 'text_model.encoder.layers.6.self_attn.q_proj.bias', 'text_model.encoder.layers.4.self_attn.out_proj.weight', 'text_model.encoder.layers.9.mlp.fc2.weight', 'text_model.encoder.layers.11.mlp.fc1.bias', 'text_model.encoder.layers.1.self_attn.out_proj.bias', 'text_model.encoder.layers.8.self_attn.q_proj.bias', 'text_model.encoder.layers.1.self_attn.out_proj.weight', 'text_model.encoder.layers.8.mlp.fc2.bias', 'text_model.encoder.layers.11.layer_norm1.weight', 'text_model.encoder.layers.7.self_attn.k_proj.weight', 'text_model.encoder.layers.5.mlp.fc2.weight', 'text_model.encoder.layers.8.self_attn.q_proj.weight', 'text_model.encoder.layers.6.layer_norm2.bias', 'text_model.encoder.layers.2.mlp.fc1.bias', 'text_model.encoder.layers.1.mlp.fc2.bias', 'text_model.encoder.layers.5.self_attn.v_proj.bias', 'text_model.encoder.layers.8.mlp.fc2.weight', 'text_model.encoder.layers.5.mlp.fc1.weight', 'text_model.encoder.layers.11.mlp.fc2.weight', 'text_model.encoder.layers.10.mlp.fc1.bias', 'text_model.encoder.layers.8.self_attn.out_proj.weight', 'text_model.encoder.layers.10.self_attn.out_proj.bias', 'text_model.encoder.layers.8.layer_norm2.bias', 'text_model.encoder.layers.1.self_attn.v_proj.weight', 'text_model.encoder.layers.9.self_attn.out_proj.bias', 'text_model.encoder.layers.8.self_attn.k_proj.weight', 'text_model.encoder.layers.5.self_attn.v_proj.weight', 'text_model.encoder.layers.10.mlp.fc2.weight', 'text_model.encoder.layers.5.layer_norm1.bias', 'text_model.encoder.layers.6.layer_norm1.weight', 'text_model.encoder.layers.6.self_attn.q_proj.weight', 'text_model.encoder.layers.4.layer_norm1.bias', 'text_model.encoder.layers.10.self_attn.v_proj.weight', 'text_model.encoder.layers.4.layer_norm2.bias', 'text_model.encoder.layers.7.layer_norm2.bias', 'text_model.encoder.layers.1.self_attn.k_proj.weight', 'text_model.encoder.layers.8.mlp.fc1.weight', 'text_model.encoder.layers.11.mlp.fc2.bias', 'text_model.encoder.layers.1.self_attn.q_proj.bias', 'text_model.encoder.layers.0.self_attn.out_proj.bias', 'text_model.encoder.layers.5.self_attn.out_proj.bias', 'text_model.encoder.layers.3.self_attn.out_proj.weight', 'text_model.encoder.layers.11.self_attn.v_proj.bias', 'text_model.embeddings.position_ids', 'text_model.encoder.layers.2.self_attn.v_proj.bias', 'text_model.encoder.layers.7.mlp.fc2.weight', 'text_model.encoder.layers.4.self_attn.v_proj.weight', 'text_model.encoder.layers.9.self_attn.v_proj.weight', 'text_model.encoder.layers.9.self_attn.q_proj.bias', 'text_model.encoder.layers.10.self_attn.out_proj.weight', 'text_model.encoder.layers.8.self_attn.v_proj.weight', 'text_model.encoder.layers.7.mlp.fc1.weight', 'text_model.encoder.layers.8.self_attn.out_proj.bias', 'text_model.encoder.layers.6.self_attn.v_proj.bias', 'text_model.encoder.layers.11.self_attn.out_proj.weight', 'text_model.encoder.layers.3.self_attn.k_proj.bias', 'text_model.encoder.layers.0.self_attn.q_proj.bias']
+- This IS expected if you are initializing CLIPVisionModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing CLIPVisionModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[INFO|modeling_utils.py:3037] 2025-06-17 17:56:41,689 >> All the weights of CLIPVisionModel were initialized from the model checkpoint at openai/clip-vit-large-patch14.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use CLIPVisionModel for predictions without further training.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  4.64s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:10<00:00,  5.08s/it]
+[INFO|modeling_utils.py:3029] 2025-06-17 17:56:52,778 >> All model checkpoint weights were used when initializing ShikraLlamaForCausalLM.
+
+[INFO|modeling_utils.py:3037] 2025-06-17 17:56:52,779 >> All the weights of ShikraLlamaForCausalLM were initialized from the model checkpoint at /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-7b.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use ShikraLlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:535] 2025-06-17 17:56:52,782 >> loading configuration file /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-7b/generation_config.json
+[INFO|configuration_utils.py:575] 2025-06-17 17:56:52,782 >> Generate config GenerationConfig {
+  "_from_model_config": true,
+  "bos_token_id": 0,
+  "eos_token_id": 1,
+  "pad_token_id": 0,
+  "transformers_version": "4.28.0.dev0"
+}
+
+[INFO|tokenization_utils_base.py:1801] 2025-06-17 17:56:52,784 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:1801] 2025-06-17 17:56:52,784 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:1801] 2025-06-17 17:56:52,784 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:1801] 2025-06-17 17:56:52,784 >> loading file tokenizer_config.json
+[INFO|tokenization_utils.py:426] 2025-06-17 17:56:52,791 >> Adding <im_patch> to the vocabulary
+[INFO|tokenization_utils.py:426] 2025-06-17 17:56:52,791 >> Adding <im_start> to the vocabulary
+[INFO|tokenization_utils.py:426] 2025-06-17 17:56:52,791 >> Adding <im_end> to the vocabulary
+[INFO|image_processing_utils.py:308] 2025-06-17 17:56:53,060 >> loading configuration file preprocessor_config.json from cache at /home/user2/.cache/huggingface/hub/models--openai--clip-vit-large-patch14/snapshots/32bd64288804d66eefd0ccbe215aa642df71cc41/preprocessor_config.json
+[INFO|image_processing_utils.py:532] 2025-06-17 17:56:53,060 >> size should be a dictionary on of the following set of keys: ({'height', 'width'}, {'shortest_edge'}, {'longest_edge', 'shortest_edge'}), got 224. Converted to {'shortest_edge': 224}.
+[INFO|image_processing_utils.py:532] 2025-06-17 17:56:53,060 >> crop_size should be a dictionary on of the following set of keys: ({'height', 'width'}, {'shortest_edge'}, {'longest_edge', 'shortest_edge'}), got 224. Converted to {'height': 224, 'width': 224}.
+[INFO|image_processing_utils.py:353] 2025-06-17 17:56:53,060 >> Image processor CLIPImageProcessor {
+  "crop_size": {
+    "height": 224,
+    "width": 224
+  },
+  "do_center_crop": true,
+  "do_convert_rgb": true,
+  "do_normalize": true,
+  "do_rescale": true,
+  "do_resize": true,
+  "feature_extractor_type": "CLIPFeatureExtractor",
+  "image_mean": [
+    0.48145466,
+    0.4578275,
+    0.40821073
+  ],
+  "image_processor_type": "CLIPImageProcessor",
+  "image_std": [
+    0.26862954,
+    0.26130258,
+    0.27577711
+  ],
+  "resample": 3,
+  "rescale_factor": 0.00392156862745098,
+  "size": {
+    "shortest_edge": 224
+  }
+}
+
+trainable params: 6742638592 || all params: 6742638592 || trainable%: 100.0000
+Traceback (most recent call last):
+  File "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/mllm/pipeline/finetune.py", line 141, in <module>
+    main()
+  File "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/mllm/pipeline/finetune.py", line 46, in main
+    trainer = trainer_cls(
+  File "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/mllm/engine/base_engine.py", line 44, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/user2/.local/lib/python3.10/site-packages/transformers/trainer.py", line 547, in __init__
+    raise ValueError(
+ValueError: The train_dataset does not implement __len__, max_steps has to be specified. The number of steps needs to be known in advance for the learning rate scheduler.
+[2025-06-17 17:57:00,220] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 3954439) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/home/user2/.local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/home/user2/.local/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/home/user2/.local/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1189, in launch_command
+    multi_gpu_launcher(args)
+  File "/home/user2/.local/lib/python3.10/site-packages/accelerate/commands/launch.py", line 815, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/home/user2/.local/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/home/user2/.local/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/user2/.local/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-main/mllm/pipeline/finetune.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-06-17_17:57:00
+  host      : bigdata-DGX-Station-A100-920-23487-2531-0R0
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3954439)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

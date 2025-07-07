@@ -1,0 +1,80 @@
+run_cfg:
+  task: rec
+  optimizer: adamw_torch
+  train_batch_size: 1
+  eval_batch_size: 1
+  lr: 5e-5
+  weight_decay: 0.05
+  max_epoch: 5
+  warmup_steps: 500
+  accum_grad_iters: 4
+  num_workers: 0
+  seed: 42
+  output_dir: output/rec_ref3_model
+  logging_steps: 10
+  eval_steps: 500
+  save_ckpt_freq: 1
+  evaluate: false
+  precision: fp16
+  fp16: true
+  gradient_checkpointing: true
+  skip_memory_metrics: false
+  full_determinism: false
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+
+model_cfg:
+  type: shikra
+  model_type: pretrain_llama_v2
+  freeze_vision: false
+  freeze_llm: false
+  freeze_backbone: false
+  freeze_mm_mlp_adapter: false
+  pretrain_mm_mlp_adapter: false
+  bf16: false
+  model_name_or_path: /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra-7b
+  cache_dir: /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f7/sagar/varshet/shikra-cache
+  model_max_length: 2048
+  version: v1
+  vision_tower: openai/clip-vit-large-patch14
+  mm_vision_select_layer: -1
+  use_mm_proj: true
+  tune_mm_mlp_adapter: false
+  sep_vision_embed: false
+  image_token_len: 256
+  sep_image_conv_front: false
+  mm_use_im_start_end: false
+  vision_encoder:
+    pretrained: true
+    freeze: false
+    model: openai/clip-vit-large-patch14
+  llm:
+    model: /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra-7b
+    tokenizer: /media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra-7b
+    use_flash_attn: false
+
+dataset_cfg:
+
+  collator: Seq2Seq2DataCollatorWithImage
+
+  train:
+    type: "rec"
+    dataset_name: "REC_ref3_train_filtered.jsonl"
+    ann_path: "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra_data/REC_ref3_train_filtered.jsonl"
+    image_folder: "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra-main/images/train2014"
+
+  eval:
+    type: "rec"
+    dataset_name: "REC_ref3_train_filtered.jsonl"
+    ann_path: "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra_data/REC_ref3_train_filtered.jsonl"
+    image_folder: "/media/bigdata/71ec9ff9-bdc2-410a-bfcb-1a3e24aaf8f71/sagar/varshet/shikra-main/images/train2014"
+
+  processors:
+    text_processor:
+      type: "BaseTextProcessor"
+      params: {}
+
+    image_processor:
+      type: "BaseImageProcessor"
+      params: {}
+
