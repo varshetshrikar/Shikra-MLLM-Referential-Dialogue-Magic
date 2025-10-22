@@ -46,7 +46,6 @@ transformers-cli convert --model llama-7b --delta shikras/shikra-7b-delta-v1 --o
 
 This will produce a fully functional **Shikra-7B** model.
 
----
 
 ## 🏃‍♂️ Running / Training
 
@@ -127,6 +126,7 @@ training_args:
 ```
 
 ---
+
 
 
 
