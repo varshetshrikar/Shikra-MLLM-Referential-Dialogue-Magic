@@ -26,9 +26,7 @@ pip install -r requirements.txt
 
 Then configure `accelerate`:
 
-```bash
-accelerate config
-```
+
 
 ---
 
@@ -126,6 +124,7 @@ training_args:
 ```
 
 ---
+
 
 
 
